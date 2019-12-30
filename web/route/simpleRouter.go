@@ -7,5 +7,5 @@ import (
 )
 
 func regSimpleRouter(app *iris.Application){
-	mvc.New(app.Party("/simple")).Handle(new(simplectr.SimpleController))
+	mvc.New(app.Party("/simple")).Handle(simplectr.New())
 }

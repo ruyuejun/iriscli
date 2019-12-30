@@ -1,11 +1,9 @@
 package main
 
 import (
-	//"fmt"
 	"github.com/kataras/iris/v12"
+	"iriscli/conf"
 	"iriscli/web/route"
-	"log"
-	//"github.com/kataras/iris/v12/mvc"
 )
 
 func main() {
@@ -36,13 +34,12 @@ func main() {
 
 	// 启动服务
 	err := app.Run(
-		iris.Addr("localhost:3000"),
+		iris.Addr("localhost:" + conf.Sysconfig.Port),
 		iris.WithCharset("UTF-8"),
 		iris.WithOptimizations,
 		iris.WithoutServerError(iris.ErrServerClosed),
 	)
 	if err != nil {
-		log.Println(err.Error())
 		panic(err.Error())
 	}
 }

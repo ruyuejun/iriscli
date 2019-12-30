@@ -7,5 +7,5 @@ import (
 )
 
 func regBookRouter(app *iris.Application) {
-	mvc.New(app.Party("/book")).Handle(bookctr.NewBookController())
+	mvc.New(app.Party("/book")).Handle(bookctr.New())
 }

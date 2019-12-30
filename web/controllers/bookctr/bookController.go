@@ -12,16 +12,17 @@ type BookController struct {
 	Service bookService.IBookService
 }
 
-func NewBookController() *BookController{
+func New() *BookController{
 	return &BookController{
 		Service: bookService.NewBookService(),
 	}
 }
 
-func (g *BookController) PostList()(result datamodels.Result)  {
+// POST: /user/list
+func (c *BookController) PostList()(result datamodels.Result)  {
 
 	var m map[string]interface{}
-	err := g.Ctx.ReadJSON(&m)
+	err := c.Ctx.ReadJSON(&m)
 	if err != nil {
 		log.Println("ReadJSON Error:", err)
 	}
@@ -33,5 +34,5 @@ func (g *BookController) PostList()(result datamodels.Result)  {
 	//	return
 	//}
 
-	return g.Service.GetBookList(m)
+	return c.Service.GetBookList(m)
 }

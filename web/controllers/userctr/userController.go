@@ -11,6 +11,12 @@ type UserController struct {
 
 }
 
+func New() *UserController{
+	return &UserController{
+
+	}
+}
+
 func (u *UserController) BeforeActivation(b mvc.BeforeActivation) {
 
 	anyMiddleware := func(ctx iris.Context) {
